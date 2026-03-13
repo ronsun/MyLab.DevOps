@@ -1,6 +1,13 @@
 controller:
     serviceType: ClusterIP
 
+    ingress:
+        enabled: true
+        ingressClassName: nginx
+        hostName: jenkins.mylab.dev
+        path: /
+        pathType: Prefix
+
     installPlugins:
         - kubernetes:4423.vb_59f230b_ce53
         - workflow-aggregator:608.v67378e9d3db_1
