@@ -1,0 +1,13 @@
+controller:
+    hostNetwork: true
+    dnsPolicy: ClusterFirstWithHostNet
+    ingressClassResource:
+        name: nginx
+        enabled: true
+        default: true
+    ingressClass: nginx
+    service:
+        enabled: true
+        type: ClusterIP
+    admissionWebhooks:
+        enabled: false
