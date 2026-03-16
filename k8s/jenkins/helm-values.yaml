@@ -1,0 +1,32 @@
+controller:
+    serviceType: ClusterIP
+
+    ingress:
+        enabled: true
+        ingressClassName: nginx
+        hostName: jenkins.mylab.local
+        path: /
+        pathType: Prefix
+
+    installPlugins:
+        - kubernetes:4423.vb_59f230b_ce53
+        - workflow-aggregator:608.v67378e9d3db_1
+        - git:5.10.0
+        - configuration-as-code:2053.vb_0da_47381a_25
+
+    initializeOnce: true
+
+    resources:
+        requests:
+            cpu: "50m"
+            memory: "256Mi"
+        limits:
+            cpu: "2000m"
+            memory: "4096Mi"
+
+persistence:
+    enabled: true
+    existingClaim: jenkins-pvc
+
+agent:
+    enabled: true
